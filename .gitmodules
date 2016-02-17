@@ -46,3 +46,15 @@
 [submodule "bundle/vim-tidy-whitespace-on-save"]
 	path = bundle/vim-tidy-whitespace-on-save
 	url = git@github.com:jchristi/vim-tidy-whitespace-on-save.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
