@@ -33,16 +33,16 @@
 	url = git@github.com:scrooloose/syntastic.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
+	url = git@github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
-	url = git://github.com/rodjek/vim-puppet.git
+	url = git@github.com/rodjek/vim-puppet.git
 [submodule "bundle/vim-node"]
 	path = bundle/vim-node
 	url = git@github.com:moll/vim-node.git
 [submodule "bundle/vim-dispatch"]
 	path = bundle/vim-dispatch
-	url = git://github.com/tpope/vim-dispatch.git
+	url = git@github.com/tpope/vim-dispatch.git
 [submodule "bundle/vim-tidy-whitespace-on-save"]
 	path = bundle/vim-tidy-whitespace-on-save
 	url = git@github.com:jchristi/vim-tidy-whitespace-on-save.git
