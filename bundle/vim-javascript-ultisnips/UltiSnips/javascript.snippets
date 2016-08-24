@@ -1,0 +1,105 @@
+snippet fu "function" b
+function ${1:funcName}($2) {
+	$0
+}
+endsnippet
+
+
+snippet '= fu' "= function"
+= function($1) {
+	$0
+}
+endsnippet
+
+
+snippet co "co.wrap(fn)"
+co.wrap(function* ($1) {
+	$0
+});
+endsnippet
+
+
+snippet fn "function with jsdoc"
+/**
+ * ${1:MyFunc}
+ *
+ * Description
+ *
+ * @param {Object} $2
+ * @returns
+ */
+function $1($2) {
+	$0
+}
+endsnippet
+
+
+snippet => "arrow function"
+=> {
+  $1
+}$0
+endsnippet
+
+snippet re "require(module)"
+require('$1');
+$0
+endsnippet
+
+
+snippet #! "shebang"
+#!/usr/bin/env node
+$0
+endsnippet
+
+
+snippet describe "Mocha test context"
+describe('$1', function() {
+	$2
+});
+$0
+endsnippet
+
+
+snippet beforeEach "Mocha before hook"
+beforeEach('$1', co.wrap(function* () {
+	$2
+}));$0
+endsnippet
+
+
+snippet it "Mocha test"
+it('$1', function(done) {
+	$2
+	done();
+});
+$0
+endsnippet
+
+
+snippet it* "Mocha async test"
+it('$1', co.wrap(function* () {
+	$2
+}));
+$0
+endsnippet
+
+
+snippet /** "JSDoc"
+/**
+ * $1
+ */
+$0
+endsnippet
+
+
+snippet module "module.exports" b
+module.exports = ${1:;}
+$0
+endsnippet
+
+
+snippet 'use "strict mode" b
+'use strict';
+
+$0
+endsnippet
