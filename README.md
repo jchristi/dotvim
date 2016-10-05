@@ -24,3 +24,8 @@ When pulling the latest version of the repo, to update submodules, run:
 ```bash
 $ git pull --recurse-submodules
 ```
+
+To update to the latest version of all submodules with the intention of updating this repo, run:
+```bash
+$ git submodule foreach git pull origin master  # via http://stackoverflow.com/a/5828396
+```
