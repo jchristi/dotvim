@@ -3,10 +3,17 @@ The project is structured using Pathogen in combination with git submodules. See
 
 Checkout the project but backup `~/.vim` directory first:
 ```bash
-mv ~/.vim ~/.vim.bak ; git clone --recursive git@github.com:jchristi/dotvim ~/.vim
+$ mv ~/.vim ~/.vim.bak ; git clone --recursive git@github.com:jchristi/dotvim ~/.vim
 ```
+
+Install the powerline fonts:
+```bash
+$ bash fonts/install.sh
+```
+
+Change default mono font to a custom powerline font (ie. `DejaVu Sans Mono for  Powerline Book`). This can be done in gnome terminal profile preferences but preferably use gnome-tweak-tool.
 
 The root directory also includes a `.vimrc` file which can be symlinked to:
 ```bash
-mv ~/.vimrc ~/.vimrc.bak ; ln -s ~/.vimrc ~/.vim/.vimrc
+$ mv ~/.vimrc ~/.vimrc.bak ; ln -s ~/.vimrc ~/.vim/.vimrc
 ```
