@@ -5,7 +5,7 @@
   path = bundle/delimitMate
   url = git@github.com:Raimondi/delimitMate.git
   branch = master
-[submodule "bundle/molokai"]
+[submodule "molokai"]
   path = bundle/molokai
   url = git@github.com:tomasr/molokai.git
   branch = master
@@ -41,7 +41,7 @@
   path = bundle/vim-dispatch
   url = git@github.com:tpope/vim-dispatch.git
   branch = master
-[submodle "bundle/vim-fedora-wwoods"]
+[submodule "bundle/vim-fedora-wwoods"]
   path = bundle/vim-fedora-wwoods
   url = git://fedorapeople.org/home/fedora/wwoods/public_git/vim-scripts.git
   branch = master
