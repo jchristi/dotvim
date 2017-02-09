@@ -242,3 +242,18 @@ au FocusLost,InsertLeave * setlocal rnu
 au FocusLost,InsertLeave * setlocal nonu
 au FocusGained,InsertEnter * setlocal nu
 au FocusGained,InsertEnter * setlocal nornu
+
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  call append(line("$"), '')
+  "let l:modeline = printf("vim: set filetype=%s :", &filetype)
+  "let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  "call append(line("$"), l:modeline)
+  let l:modeline = printf("vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+        \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
