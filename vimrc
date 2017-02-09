@@ -251,7 +251,7 @@ function! AppendModeline()
   "let l:modeline = printf("vim: set filetype=%s :", &filetype)
   "let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   "call append(line("$"), l:modeline)
-  let l:modeline = printf("vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
         \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
