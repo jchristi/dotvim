@@ -93,12 +93,17 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " File type-specific whitespace settings
 " Syntax of these languages is fussy over tabs Vs spaces
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+autocmd FileType cpp setlocal sw=4 ts=4 sts=4 expandtab
+autocmd FileType ruby setlocal sw=2 ts=2 sts=2 expandtab
 autocmd FileType python setlocal sw=4 ts=4 sts=4 expandtab
 "autocmd FileType python setlocal shiftround
 "autocmd FileType python setlocal autoindent
-autocmd FileType python setlocal textwidth=79
-autocmd FileType cpp setlocal sw=4 ts=4 sts=4 expandtab
-autocmd FileType ruby setlocal sw=2 ts=2 sts=2 expandtab
+autocmd FileType python setlocal textwidth=0
+autocmd FileType python call SetPythonOptions()
+
+function SetPythonOptions()
+  noremap <buffer> <F9> :exec 'w !python %'<cr>
+endfunction
 
 " Automatically source .vimrc file when saved
 augroup myvimrc
@@ -192,11 +197,11 @@ let loaded_delimitMate = 1 " Disable DelimitMate cause it can be annoying
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pyflakes'] " used to be 'pylint'
 let g:syntastic_php_checkers = ['']
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['pp', 'js', 'css', 'html', 'xml', 'rb', 'json', 'yaml', 'yml'],
-                           \ 'passive_filetypes': ['java', 'python', 'php'] }
+                           \ 'active_filetypes': ['pp', 'js', 'css', 'html', 'xml', 'rb', 'json', 'yaml', 'yml', 'python'],
+                           \ 'passive_filetypes': ['java', 'php'] }
 
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++14' " -stdlib=libc++'
@@ -251,7 +256,7 @@ function! AppendModeline()
   "let l:modeline = printf("vim: set filetype=%s :", &filetype)
   "let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   "call append(line("$"), l:modeline)
-  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set formatoptions-=t :",
         \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
