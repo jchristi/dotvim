@@ -75,6 +75,10 @@ filetype indent on " Enable indenting for filetype
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
+" Removes screen artifacts/corruption when opening vim
+autocmd VimEnter * redraw!
+autocmd VimEnter * redraw!
+
 " Drupal *.module and *.install files.
 augroup drupal
   autocmd BufRead,BufNewFile *.module set filetype=php
@@ -95,15 +99,16 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType cpp setlocal sw=4 ts=4 sts=4 expandtab
 autocmd FileType ruby setlocal sw=2 ts=2 sts=2 expandtab
+
+" Python
+function! SetPythonOptions()
+  noremap <buffer> <F9> :exec 'w !python %'<cr>
+endfunction
 autocmd FileType python setlocal sw=4 ts=4 sts=4 expandtab
 "autocmd FileType python setlocal shiftround
 "autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal textwidth=0
 autocmd FileType python call SetPythonOptions()
-
-function SetPythonOptions()
-  noremap <buffer> <F9> :exec 'w !python %'<cr>
-endfunction
 
 " Automatically source .vimrc file when saved
 augroup myvimrc
@@ -191,13 +196,14 @@ map <leader>et :tabe %%
 
 
 " Plugins --------------------------------------------------- "
-"
+
 " DelimitMate
 let loaded_delimitMate = 1 " Disable DelimitMate cause it can be annoying
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pyflakes'] " used to be 'pylint'
+let g:syntastic_enable_js_checker = 1
+let g:syntastic_python_checkers = ['pyflakes'] " pylint is too slow
 let g:syntastic_php_checkers = ['']
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['pp', 'js', 'css', 'html', 'xml', 'rb', 'json', 'yaml', 'yml', 'python'],
@@ -205,7 +211,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++14' " -stdlib=libc++'
-let g:syntastic_enable_js_checker = 1
 
 " Use the location list when errors occur
 let g:syntastic_always_populate_loc_list = 1
@@ -240,7 +245,7 @@ function! ToggleRelativeOn()
   set nu
 endfunction
 " autocmd FocusLost * call ToggleRelativeOn()
-" autocmd FocusGained * call ToggleRelajjjtiveOn()
+" autocmd FocusGained * call ToggleRelativeOn()
 " autocmd InsertEnter * call ToggleRelativeOn()
 " autocmd InsertLeave * call ToggleRelativeOn()
 au FocusLost,InsertLeave * setlocal rnu
