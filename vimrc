@@ -94,20 +94,18 @@ autocmd BufNewFile,BufRead {Guardfile,Gemfile,Rakefile,Vagrantfile} set filetype
 autocmd BufNewFile,BufRead *.json set filetype=javascript
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" Python
+function! SetPythonOptions()
+  noremap <buffer> <F9> :exec 'w !python %'<cr>
+  autocmd FileType python setlocal sw=4 ts=4 sts=4 tw=79 expandtab autoindent
+  autocmd FileType python setlocal fileformat=unix
+endfunction
+
 " File type-specific whitespace settings
 " Syntax of these languages is fussy over tabs Vs spaces
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType cpp setlocal sw=4 ts=4 sts=4 expandtab
 autocmd FileType ruby setlocal sw=2 ts=2 sts=2 expandtab
-
-" Python
-function! SetPythonOptions()
-  noremap <buffer> <F9> :exec 'w !python %'<cr>
-endfunction
-autocmd FileType python setlocal sw=4 ts=4 sts=4 expandtab
-"autocmd FileType python setlocal shiftround
-"autocmd FileType python setlocal autoindent
-autocmd FileType python setlocal textwidth=0
 autocmd FileType python call SetPythonOptions()
 
 " Automatically source .vimrc file when saved
@@ -117,7 +115,7 @@ augroup myvimrc
 augroup END
 
 " Files to ignore on autocomplete
-set  wildignore=*.bin,*/build/*,*.dat,*.jpg,*.o,*.out,*.orig,*.pdf,*.png,*.pyc,*.so,*.swp
+set wildignore=*.bin,*/build/*,*.dat,*.jpg,*.o,*.out,*.orig,*.pdf,*.png,*.pyc,*.so,*.swp
 
 " set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set noswapfile " no swap files
@@ -149,7 +147,7 @@ hi clear SignColumn
 set cc=90                             " Column to highlight to indicate max line length
 hi ColorColumn ctermbg=236
 set cursorline                        " highlight the current line
-hi CursorLine cterm=NONE ctermbg=235
+hi CursorLine cterm=NONE ctermbg=234
 
 " Git gutter
 let g:gitgutter_sign_added = '++'
@@ -261,9 +259,10 @@ function! AppendModeline()
   "let l:modeline = printf("vim: set filetype=%s :", &filetype)
   "let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   "call append(line("$"), l:modeline)
-  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set formatoptions-=t :",
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
         \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
+
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
