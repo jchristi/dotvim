@@ -79,5 +79,5 @@
   path = bundle/vim-tidy-whitespace-on-save
   url = git@github.com:jchristi/vim-tidy-whitespace-on-save.git
 [submodule "bundle/vim-ansible"]
-	path = bundle/vim-ansible
-	url = ggit@github.com:jchristi/ansible-vim.git
+  path = bundle/vim-ansible
+  url = git@github.com:jchristi/ansible-vim.git
