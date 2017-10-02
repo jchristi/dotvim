@@ -81,3 +81,6 @@
 [submodule "bundle/vim-ansible"]
   path = bundle/vim-ansible
   url = git@github.com:jchristi/ansible-vim.git
+[submodule "bundle/vim-unimpaired"]
+  path = bundle/vim-unimpaired
+  url = git@github.com:tpope/vim-unimpaired.git
