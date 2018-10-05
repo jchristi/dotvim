@@ -192,6 +192,8 @@ map <leader>et :tabe %%
 " :cn , :cp , :cc
 " :lne , :lp
 
+" Shortcut for editing a new file in a new tab
+cabbrev tabn tabnew
 
 " Plugins --------------------------------------------------- "
 
