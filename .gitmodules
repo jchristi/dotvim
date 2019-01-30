@@ -84,3 +84,6 @@
 [submodule "bundle/vim-unimpaired"]
   path = bundle/vim-unimpaired
   url = git@github.com:tpope/vim-unimpaired.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/vim-typescript
+	url = git@github.com:leafgarland/typescript-vim.git
