@@ -87,3 +87,9 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/vim-typescript
 	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "bundle/editorconfig-vim"]
+	path = bundle/vim-editorconfig
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "bundle/indentpython.vim"]
+	path = bundle/vim-indentpython
+	url = git@github.com:vim-scripts/indentpython.vim.git
