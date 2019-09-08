@@ -91,7 +91,9 @@ autocmd BufNewFile,BufRead *.handlebars set filetype=html.js
 autocmd BufNewFile,BufRead *.hbs set filetype=html.js
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead {Guardfile,Gemfile,Rakefile,Vagrantfile} set filetype=ruby
+autocmd BufNewFile,BufRead *.pipeline set filetype=groovy
 autocmd BufNewFile,BufRead *.json set filetype=javascript
+autocmd BufNewFile,BufRead *.coffee set filetype=javascript
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Python
@@ -103,6 +105,7 @@ endfunction
 
 " File type-specific whitespace settings
 " Syntax of these languages is fussy over tabs Vs spaces
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType cpp setlocal sw=4 ts=4 sts=4 expandtab
 autocmd FileType ruby setlocal sw=2 ts=2 sts=2 expandtab
