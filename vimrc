@@ -95,6 +95,7 @@ autocmd BufNewFile,BufRead *.pipeline set filetype=groovy
 autocmd BufNewFile,BufRead *.json set filetype=javascript
 autocmd BufNewFile,BufRead *.coffee set filetype=javascript
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.{yaml,yml} set filetype=yaml.ansible
 
 " Python
 function! SetPythonOptions()
@@ -204,6 +205,7 @@ cabbrev tabn tabnew
 let loaded_delimitMate = 1 " Disable DelimitMate cause it can be annoying
 
 " Syntastic
+let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_js_checker = 1
 let g:syntastic_python_checkers = ['pyflakes'] " pylint is too slow
