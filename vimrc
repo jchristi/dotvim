@@ -239,8 +239,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "au BufWinEnter * silent loadview
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
-set nonu
-set rnu
+"set nonu
+"set rnu
+set nu
 function! ToggleNumbersOn()
   set nu!
   set rnu
